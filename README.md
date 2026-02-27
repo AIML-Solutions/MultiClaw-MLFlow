@@ -1,6 +1,6 @@
 # MultiClaw-MLFlow 🧪🦞
 
-[![MLflow Quality Gate](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml)
+[![MLflow Quality Gate](https://github.com/AIML-Solutions/MultiClaw-MLFlow/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/MultiClaw-MLFlow/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e.svg)](LICENSE)
 
 **MultiClaw-MLFlow** is AIML Solutions’ model lifecycle and experiment governance lane.
