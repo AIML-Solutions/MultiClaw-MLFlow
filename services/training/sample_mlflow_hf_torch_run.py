@@ -35,7 +35,7 @@ def main():
     os.environ["AWS_SECRET_ACCESS_KEY"] = secret
 
     mlflow.set_tracking_uri(tracking_uri)
-    mlflow.set_experiment("multiclaw-mlflow-baseline")
+    mlflow.set_experiment("MultiClaw-MLFlow-baseline")
 
     x = torch.randn(1024, 4)
     y = (x[:, 0] * 0.7 + x[:, 1] * -0.2 + 0.1).unsqueeze(1)

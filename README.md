@@ -1,9 +1,9 @@
-# MultiClaw MLflow 🧪🦞
+# MultiClaw-MLFlow 🧪🦞
 
 [![MLflow Quality Gate](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-22c55e.svg)](LICENSE)
 
-**MultiClaw MLflow** is AIML Solutions’ model lifecycle and experiment governance lane.
+**MultiClaw-MLFlow** is AIML Solutions’ model lifecycle and experiment governance lane.
 
 It gives MultiClaw teams a reproducible system for training, evaluating, registering, and auditing models across quant and agentic workflows.
 
