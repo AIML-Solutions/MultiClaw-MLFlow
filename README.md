@@ -1,26 +1,47 @@
-# MLFlow Lab (MultiClaw)
+# MultiClaw MLflow
 
-Open-source ML platform lane for experiment tracking, model registry, and reproducible training with PyTorch + Hugging Face.
+**MultiClaw MLflow** is the model lifecycle lane for AIML Solutions.
 
-## Mission
-Build a practical ML stack that sits alongside QuantConnect/LEAN workflows and can share infra patterns with MultiClaw AgentOps.
+It provides experiment tracking, artifact/version management, and reproducible training workflows for PyTorch + Hugging Face models used across MultiClaw departments.
 
-## Stack (initial)
-- MLflow Tracking + Model Registry
-- PostgreSQL backend store
-- MinIO artifact store (S3-compatible)
-- PyTorch + HF Transformers for training/inference experiments
-- Optional GraphQL read layer for experiment metadata
+## What this repo delivers
 
-## Layout
-- `infra/` Docker Compose and environment files
-- `services/training/` training pipeline stubs
-- `services/data/` dataset ingestion/prep stubs
-- `services/registry/` model promotion/evaluation stubs
-- `docs/` architecture + runbook
+- MLflow tracking server and registry
+- PostgreSQL backend for metadata
+- MinIO (S3-compatible) artifact storage
+- Baseline training script demonstrating MLflow + HF + PyTorch logging
+- Documentation for architecture and operational runbook
 
-## First actions
-1. Configure `.env` from `.env.example`.
-2. Start infra with Docker Compose.
-3. Point local MLflow client to tracking URI.
-4. Run a baseline training experiment and log metrics/artifacts.
+## Current status
+
+- Docker stack validated (mlflow-db, mlflow-minio, mlflow-tracking)
+- Tracking UI reachable on `http://localhost:5000`
+- Artifact store verified (`mlflow-artifacts` bucket)
+- Sample run completed and logged successfully
+
+## Quick start
+
+```bash
+cd infra
+cp .env.example .env
+docker compose up -d
+
+# run sample experiment
+MLFLOW_TRACKING_URI=http://127.0.0.1:5000 \
+MLFLOW_S3_ENDPOINT_URL=http://127.0.0.1:9000 \
+AWS_ACCESS_KEY_ID=minio \
+AWS_SECRET_ACCESS_KEY=minio_dev_change_me \
+python3 services/training/sample_mlflow_hf_torch_run.py
+```
+
+## Repository layout
+
+- `infra/` — compose stack + env template
+- `services/training/` — training experiment scripts
+- `docs/architecture.md` — system architecture
+- `docs/runbook.md` — operational guide
+- `docs/ROADMAP.md` — near/mid-term milestones
+
+## License
+
+MIT — see [LICENSE](LICENSE).
