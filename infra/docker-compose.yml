@@ -13,7 +13,7 @@ services:
       - mlflow_pgdata:/var/lib/postgresql/data
 
   minio:
-    image: minio/minio:RELEASE.2026-01-20T20-30-00Z
+    image: minio/minio:latest
     container_name: mlflow-minio
     command: server /data --console-address ":9001"
     restart: unless-stopped
@@ -41,7 +41,7 @@ services:
       - "5000:5000"
     command: >
       bash -lc "
-      pip install --no-cache-dir mlflow==2.17.2 psycopg2-binary boto3 &&
+      pip install --no-cache-dir mlflow==3.10.0 psycopg2-binary boto3 &&
       mlflow server
       --host 0.0.0.0
       --port 5000
