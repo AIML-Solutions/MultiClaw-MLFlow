@@ -1,23 +1,32 @@
-# MultiClaw MLflow
+# MultiClaw MLflow 🧪🦞
 
-**MultiClaw MLflow** is the model lifecycle lane for AIML Solutions.
+[![MLflow Quality Gate](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml/badge.svg)](https://github.com/AIML-Solutions/multiclaw-mlflow/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-22c55e.svg)](LICENSE)
 
-It provides experiment tracking, artifact/version management, and reproducible training workflows for PyTorch + Hugging Face models used across MultiClaw departments.
+**MultiClaw MLflow** is AIML Solutions’ model lifecycle and experiment governance lane.
 
-## What this repo delivers
+It gives MultiClaw teams a reproducible system for training, evaluating, registering, and auditing models across quant and agentic workflows.
 
-- MLflow tracking server and registry
-- PostgreSQL backend for metadata
-- MinIO (S3-compatible) artifact storage
-- Baseline training script demonstrating MLflow + HF + PyTorch logging
-- Documentation for architecture and operational runbook
+## What this repo does
 
-## Current status
+- Runs MLflow tracking + model registry
+- Stores metadata in Postgres and artifacts in MinIO (S3-compatible)
+- Provides baseline PyTorch + HF tracked experiment flow
+- Defines architecture and runbook standards for expansion
 
-- Docker stack validated (mlflow-db, mlflow-minio, mlflow-tracking)
-- Tracking UI reachable on `http://localhost:5000`
-- Artifact store verified (`mlflow-artifacts` bucket)
-- Sample run completed and logged successfully
+## Verified status
+
+- `mlflow-db`, `mlflow-minio`, `mlflow-tracking` stack validated
+- Tracking UI available at `http://localhost:5000`
+- Artifact bucket `mlflow-artifacts` verified
+- Sample training run completed with logged metrics + artifacts
+
+## Core docs
+
+- [docs/architecture.md](docs/architecture.md)
+- [docs/runbook.md](docs/runbook.md)
+- [docs/EXPERIMENT_STANDARD.md](docs/EXPERIMENT_STANDARD.md)
+- [docs/ROADMAP.md](docs/ROADMAP.md)
 
 ## Quick start
 
@@ -26,7 +35,6 @@ cd infra
 cp .env.example .env
 docker compose up -d
 
-# run sample experiment
 MLFLOW_TRACKING_URI=http://127.0.0.1:5000 \
 MLFLOW_S3_ENDPOINT_URL=http://127.0.0.1:9000 \
 AWS_ACCESS_KEY_ID=minio \
@@ -34,13 +42,9 @@ AWS_SECRET_ACCESS_KEY=minio_dev_change_me \
 python3 services/training/sample_mlflow_hf_torch_run.py
 ```
 
-## Repository layout
+## Contributing
 
-- `infra/` — compose stack + env template
-- `services/training/` — training experiment scripts
-- `docs/architecture.md` — system architecture
-- `docs/runbook.md` — operational guide
-- `docs/ROADMAP.md` — near/mid-term milestones
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
